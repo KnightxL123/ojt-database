@@ -1,11 +1,19 @@
 services:
   - type: web
-    name: ojt-mysql-database
-    runtime: docker
-    plan: starter
-    dockerfilePath: ./Dockerfile
+    name: ojt-management-system
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
-      - key: MYSQL_ROOT_PASSWORD
-        generateValue: true
-      - key: MYSQL_DATABASE
-        value: ojt_system
+      - key: DATABASE_URL
+        fromService:
+          name: ojt-database
+          type: postgresql
+          property: connectionString
+
+databases:
+  - name: ojt-database
+    plan: free
+    databaseName: ojt_system
+    user: ojt_user
