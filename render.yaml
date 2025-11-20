@@ -1,6 +1,7 @@
 services:
-  - type: docker
+  - type: web
     name: ojt-mysql-database
+    runtime: docker
     plan: starter
     dockerfilePath: ./Dockerfile
     envVars:
