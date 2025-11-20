@@ -1,8 +1,8 @@
 services:
-  - type: pserv
+  - type: web
     name: ojt-mysql-database
     plan: starter
-    image: mysql:8.0
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         generateValue: true
