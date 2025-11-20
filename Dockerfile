@@ -1,7 +1,4 @@
 FROM mysql:8.0
-
-# Copy initialization script
-COPY init-database.sql /docker-entrypoint-initdb.d/
-
-# Set proper permissions
-RUN chmod 644 /docker-entrypoint-initdb.d/init-database.sql
+ENV MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+ENV MYSQL_DATABASE=${MYSQL_DATABASE}
+EXPOSE 3306
