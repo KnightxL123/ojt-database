@@ -2,14 +2,9 @@ services:
   - type: pserv
     name: ojt-mysql-database
     plan: starter
-    env: docker
     image: mysql:8.0
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         generateValue: true
       - key: MYSQL_DATABASE
         value: ojt_system
-      - key: MYSQL_USER
-        value: ojt_user
-      - key: MYSQL_PASSWORD
-        generateValue: true
